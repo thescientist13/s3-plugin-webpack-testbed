@@ -1,7 +1,7 @@
 # s3-plugin-webpack-test-bed
 
 ## Overview
-This a repo to demonstrate a (possible) bug with [s3-webpack-plugin]() and its handling of certain paths, like images used in a `<img>` HTML tag.
+This a repo to demonstrate a (possible) bug with [s3-webpack-plugin](https://github.com/webpack-contrib/s3-plugin-webpack/) and its handling of certain paths, like images used in a `<img>` HTML tag.
 
 ## Setup
 1. Make sure you have NodeJS and npm or yarn already installed
