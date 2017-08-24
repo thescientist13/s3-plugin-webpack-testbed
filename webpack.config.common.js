@@ -36,10 +36,10 @@ module.exports = {
         loader: 'html-loader'
       }]
     }, {
-      test: /\.less$/,
+      test: /\.css$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
-        use: ['css-loader', 'less-loader']
+        use: ['css-loader']
       })
     }, {
       test: /\.(jpg|png|gif)$/,
@@ -58,7 +58,7 @@ module.exports = {
   plugins: [
     // keep commons chunk plugin first for karma.conf.js interop
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor']
+      name: 'common'
     }),
 
     new ExtractTextPlugin('[name].[contenthash].css'),
