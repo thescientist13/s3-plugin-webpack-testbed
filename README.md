@@ -1,4 +1,4 @@
-# s3-webpack-plugin-test-bed
+# s3-plugin-webpack-test-bed
 
 ## Overview
 This a repo to demonstrate a (possible) bug with [s3-webpack-plugin]() and its handling of certain paths, like images used in a `<img>` HTML tag.
@@ -39,4 +39,19 @@ Currently being observed is [this](XXX) issue with how image paths in `<img>` HT
 However in _build/index.[contenthash].bundle.js_ we see there is no `defaultCDNBase` applied to our `img` path, though it is content hashed
 ```
 function(e,n,t){e.exports='<div id=home> <h1>Yay Webpack!</h1> <img alt="webpack image should be here" src='+t(4)+"> </div>"},function(e,n,t){e.exports=t.p+"f78661bef717cf2cc2c2e5158f196384.png"}],[0]);
+```
+
+That said, if the image is moved to the _home.css_ file as a background image, e.g.
+```
+#home {
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+  background-image: url('./webpack.png');
+}
+```
+
+It will get correctly CDN-ized in _build/index.[contenthash].css_
+```
+#home{width:40%;margin:0 auto;text-align:center;background-image:url(http://123fakepath.cloudfront.net/f78661bef717cf2cc2c2e5158f196384.png)}
 ```
