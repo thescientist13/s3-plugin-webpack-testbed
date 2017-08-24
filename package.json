@@ -1,0 +1,32 @@
+{
+  "name": "s3-webpack-plugin-img-cdn",
+  "version": "0.1.0",
+  "description": "A test repo for validating expectations for s3 webpack plugin",
+  "main": "src/index.js",
+  "author": "Owen Buckley <owen.buckley@analogstudios.net",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf ./build && eslint *.js && webpack --config ./webpack.config.prod.js -p --progress --profile --bail",
+    "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
+    "release": "rimraf ./build && webpack --config ./webpack.config.release.js -p --progress --profile --bail"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "css-loader": "^0.28.5",
+    "eslint": "^4.5.0",
+    "eslint-loader": "^1.9.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "rimraf": "^2.6.1",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1",
+    "webpack-merge": "^4.1.0",
+    "webpack-s3-plugin": "^1.0.0-rc.0"
+  }
+}
