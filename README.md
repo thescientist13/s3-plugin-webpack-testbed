@@ -10,7 +10,7 @@ This a repo to demonstrate a (possible) bug with [s3-webpack-plugin]() and its h
 **Note: AWS credentials aren't actually needed for reproducing this issue**
 
 ## Test Case
-Currently being observed is [this](XXX) issue with how image paths in `<img>` HTML tags are not getting CDN-ized.
+Currently being observed is [this](https://github.com/webpack-contrib/s3-plugin-webpack/issues/83) issue with how image paths in `<img>` HTML tags are not getting CDN-ized.
 
 1. Run `yarn run release`
 1. Look in the _build/_ directory and observe that in _index.html_ we see our `defaultCDNBase` from _webpack.config.release.js_ value used for our `<script>` and `<style>` paths
