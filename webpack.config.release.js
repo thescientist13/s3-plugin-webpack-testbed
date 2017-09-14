@@ -1,11 +1,24 @@
 const prodConfig = require('./webpack.config.prod');
 const S3Plugin = require('webpack-s3-plugin');
 const webpackMerge = require('webpack-merge');
+const cdnBase = 'http://123fakepath.cloudfront.net';
 
 module.exports = webpackMerge(prodConfig, {
   // "workaround" for https://github.com/MikaAK/s3-plugin-webpack/issues/73
   output: {
     publicPath: ''
+  },
+
+  module: {
+    rules: [{
+      test: /\.(jpg|png|gif)$/,
+      use: [{
+        loader: 'file-loader',
+        options: {
+          publicPath: cdnBase
+        }
+      }]
+    }]
   },
 
   plugins: [
@@ -19,7 +32,7 @@ module.exports = webpackMerge(prodConfig, {
         Bucket: process.env.AWS_BUCKET
       },
       cdnizerOptions: {
-        defaultCDNBase: 'http://123fakepath.cloudfront.net'
+        defaultCDNBase: cdnBase
       }
     })
   ]
